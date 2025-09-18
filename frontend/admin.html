@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Paneli - Lokantamız</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="image/favicon.png">
+</head>
+<style>
+  .main-menu{
+  height: 75px;
+  background-color:  rgb(183, 96, 24);
+  }
+  .main-menu a{
+  width: 240px;
+  }
+</style>
+<body>
+  <nav class="fade-in-element">
+    <div class="main-menu">
+      <div class="menu-items">
+      </div>
+      <a href="index.html" id="logoutBtn">
+      <i class="fas fa-sign-out-alt"></i> Çıkış 
+    </a>
+    </div>
+  </nav>
+  <div class="admin-container">
+    <h1>ADMİN PANELİ</h1>
+    <div class="admin-sections">
+      <!-- Kategori Yönetimi -->
+      <section class="admin-section">
+        <h2>Kategori Yönetimi</h2>
+        <div class="form-group">
+          <input type="text" id="newCategory" placeholder="Yeni kategori adı">
+          <button id="addCategory">Kategori Ekle</button>
+        </div>
+        <ul id="categoryList" class="admin-list">
+          <!-- Kategoriler -->
+        </ul>
+      </section>
+      
+      <!-- Ürün Yönetimi -->
+      <section class="admin-section">
+        <h2>Ürün Yönetimi</h2>
+        <!-- Düzenleme Formu-->
+<div id="editFormContainer" class="product-form-edit hidden">
+  <h3>Ürün Düzenle</h3>
+  <form id="editProductForm">
+    <input type="hidden" id="editProductId">
+    
+    <div class="form-group">
+      <label for="editProductCategory">Kategori:</label>
+      <select id="editProductCategory" required>
+        <!-- Kategoriler buraya eklenecek -->
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="editProductName">Ürün Adı:</label>
+      <input type="text" id="editProductName" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="editProductDesc">Açıklama:</label>
+      <textarea id="editProductDesc" required></textarea>
+    </div>
+    
+    <div class="form-group">
+      <label for="editProductPrice">Fiyat (TL):</label>
+      <input type="number" id="editProductPrice" step="0.01" required>
+    </div>
+    
+    <div class="form-group">
+      <label for="editProductImage">Ürün Resmi (Değiştirmek isterseniz):</label>
+      <input type="file" id="editProductImage" accept="image/*">
+      <img id="editImagePreview" class="preview-image" alt="Önizleme">
+      <div id="currentImageInfo"></div>
+    </div>
+    
+    <div class="form-group">
+      <button type="submit" id="updateProduct">Ürünü Güncelle</button>
+      <button type="button" id="cancelEdit">İptal</button>
+    </div>
+  </form>
+</div>
+        
+        <!-- Yeni Ürün Ekleme Formu -->
+        <div id="addFormContainer">
+          <h3>Yeni Ürün Ekle</h3>
+          <form id="productForm">
+            <div class="form-group">
+              <label for="productCategory">Kategori:</label>
+              <select id="productCategory" required>
+                <!-- Kategoriler buraya eklenecek -->
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="productName">Ürün Adı:</label>
+              <input type="text" id="productName" required>
+            </div>
+            <div class="form-group">
+              <label for="productDesc">Açıklama:</label>
+              <textarea id="productDesc" required></textarea>
+            </div>
+            <div class="form-group">
+              <label for="productPrice">Fiyat (TL):</label>
+              <input type="number" id="productPrice" step="0.01" required>
+            </div>
+            <div class="form-group">
+              <label for="productImage">Ürün Resmi:</label>
+              <input type="file" id="productImage" accept="image/*" required>
+              <img id="imagePreview" class="preview-image" alt="Önizleme">
+            </div>
+            <button type="submit" id="saveProduct">Ürünü Kaydet</button>
+          </form>
+        </div>
+        
+        <div class="product-list-container">
+          <h3>Mevcut Ürünler</h3>
+          <div id="productList" class="admin-list">
+            <!-- Ürünler  -->
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

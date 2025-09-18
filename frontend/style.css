@@ -1,0 +1,1294 @@
+body {
+  overflow-x: hidden; 
+  width: 100%;
+  max-width: 100vw; 
+}
+/* Navigasyon */
+.main-menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 15px;
+  max-width: 100vw;
+  height: 175px;
+  border: 2px solid;
+  padding: 10px;
+  background-color: rgb(78, 52, 46);
+  transition: background-color 0.7s;
+}
+
+.main-menu a {
+  text-decoration: none;
+  text-align: center;
+  height: 40px;
+  width: 120px;
+  line-height: 40px;
+  display: inline-block;
+  border-radius: 25px 0px 25px 0px;
+  padding: 0 10px;
+  color: rgb(78, 52, 46);
+  background-color: rgb(245, 245, 220);
+  border: 2px solid rgb(85, 58, 36);
+  transition: background-color 0.8s ease;
+}
+
+.main-menu a:hover {
+  background-color: rgb(183, 96, 24);
+  color: rgb(245, 245, 220);
+}
+
+.main-menu .menu-items {
+  position: relative; 
+  display: flex;
+  gap: 15px;
+}
+
+.main-menu div.header-logo {
+  width: 250px;
+  height: 160px;
+  background-color: rgb(245, 245, 220);
+  border-style: solid;
+  border-radius: 25px 0px 25px 0px;
+  border-color: rgb(78, 52, 46);
+  box-shadow: 0px 0px 5px 5px rgb(245,245,220);
+}
+
+.main-menu div.header-logo img {
+  width: 250px;
+  height: 160px;
+  border-radius: 25px 25px 0px 0px;
+}
+/* Login Modalı */
+.login-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.3s;
+}
+
+.login-content {
+  background-color: #f5f5dc;
+  margin: 10% auto;
+  padding: 25px;
+  border: 2px solid rgb(78, 52, 46);
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.login-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgb(78, 52, 46);
+  margin-bottom: 20px;
+}
+
+.login-header h2 {
+  color: rgb(78, 52, 46);
+  margin: 0;
+  font-size: 24px;
+}
+
+.close-login, .close-register {
+  color: rgb(78, 52, 46);
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-login:hover, .close-register:hover {
+  color: #a0522d;
+}
+
+/* Google Giriş Butonu */
+.social-login-btn {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: white;
+  color: #444;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.social-login-btn:hover {
+  background-color: #f5f5f5;
+}
+
+.social-login-btn img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+/* Bölücü Çizgi */
+.divider {
+  position: relative;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background-color: #ddd;
+  z-index: 1;
+}
+
+.divider span {
+  position: relative;
+  z-index: 2;
+  background-color: #f5f5dc;
+  padding: 0 15px;
+  color: #666;
+}
+
+/* Form Stilleri */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: rgb(78, 52, 46);
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #a0522d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: rgb(78, 52, 46);
+}
+
+/* Footer Linkleri */
+.login-footer {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.login-footer a {
+  color: #a0522d;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.login-footer a:hover {
+  color: rgb(78, 52, 46);
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-content {
+    padding: 15px;
+  }
+  
+  .social-login-btn, .login-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
+
+/* Slider */
+.slider-section {
+  height: 600px; 
+  margin-bottom: 30px;
+}
+
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.slider {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  background-color: rgb(245, 245, 220);
+}
+
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(78, 52, 46);
+  color: rgb(245, 245, 220);
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 10;
+  opacity: 0;
+}
+
+.slider-container:hover .prev-btn,
+.slider-container:hover .next-btn {
+  opacity: 1;
+}
+
+.prev-btn {
+  left: 20px;
+}
+
+.next-btn {
+  right: 20px;
+}
+
+.dots-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.dot {
+  width: 40px;
+  height: 5px;
+  background-color: rgb(78, 52, 46);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.dot::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 100%;
+  background-color: rgb(245, 245, 220);
+}
+
+.dot.active::after {
+  animation: fillProgress 5s linear forwards;
+}
+
+.dot.active.manual::after {
+  animation: none;
+  width: 100%;
+}
+
+@keyframes fillProgress {
+  0% { width: 0; }
+  100% { width: 100%; }
+}
+
+/* Media Row */
+.media-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  padding: 30px;
+  margin: 40px 0;
+}
+
+.video-container, .image-container {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.video-container {
+  flex: 0 0 50%; 
+  aspect-ratio: 16/9;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-container {
+  flex: 0 0 25%; 
+  aspect-ratio: 1/1;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Ürün Kartları */
+.products-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  clear: both;
+}
+
+.product-card {
+  position: relative;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: rgb(88, 42, 11);
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  box-shadow: 0px 0px 8px 8px rgb(78, 52, 46);
+}
+
+.product-card img {
+  width: 100%;
+  height: 65%;
+  object-fit: cover;
+}
+
+.card-description {
+  position: absolute;
+  height: 35%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 15px;
+  background-color: rgb(78, 52, 46);
+  color: rgb(245, 245, 220);
+  text-align: left;
+}
+
+.card-description h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.card-description p {
+  margin: 0;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.card-description a {
+  position: absolute;
+  display: inline-block;
+  width: 100px;
+  height: 30px;
+  background-color: #a0522d; 
+  text-align: center;
+  line-height: 30px; 
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  bottom: 15px;
+  left: 15px; 
+  transition: box-shadow 0.3s ease;
+}
+
+.card-description a:hover {
+  box-shadow: 0px 0px 5px 5px rgb(245, 245, 220);
+}
+
+/* Footer */
+footer {
+  display: flex;
+  width: 100%;
+  height: 200px;
+  background-color: rgb(78, 52, 46); 
+}
+
+.footer-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  padding: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.footer-section:not(:last-child) {
+  border-right: 2px solid rgb(78, 52, 46); 
+}
+
+.bolum1 {
+  background-color: rgb(78, 52, 46);
+  color: rgb(245, 245, 220);
+}
+
+.bolum2, .bolum3, .bolum4 {
+  background-color: rgb(245, 245, 220);
+  color: rgb(78, 52, 46);
+}
+
+/* Sosyal Medya İkonları */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px 0;
+}
+
+.social-icon {
+  color: white;
+  background-color: #333;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
+}
+
+.social-icon:nth-child(1):hover { 
+  background-color: #25D366;
+}
+.social-icon:nth-child(2):hover { 
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+.social-icon:nth-child(3):hover { 
+  background-color: #1877F2;
+}
+.social-icon:nth-child(4):hover { 
+  background-color: #0000;
+}
+
+/* Animasyonlar */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive Tasarım */
+@media (max-width: 1200px) {
+  .product-card {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (max-width: 992px) {
+  .main-menu {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 20px;
+  }
+  
+  .slider-section {
+    height: 400px;
+  }
+  
+  .product-card {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .media-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .video-container, .image-container {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+  
+  .video-container {
+    aspect-ratio: 16/9;
+  }
+  
+  .image-container {
+    aspect-ratio: 16/9; 
+  }
+  
+  .main-menu .menu-items {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .search-container {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  
+  footer {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .footer-section:not(:last-child) {
+    border-right: none;
+    border-bottom: 2px solid rgb(78, 52, 46);
+  }
+}
+
+@media (max-width: 576px) {
+  .product-card {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+  
+  .product-card img {
+    height: 70%;
+  }
+  
+  .card-description {
+    height: 30%;
+  }
+  
+  .main-menu a {
+    width: 100px;
+    font-size: 14px;
+  }
+}
+/* Sepet Modal Stilleri */
+.sepet-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.5s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.sepet-content {
+  background-color: #f5f5dc;
+  margin: 10% auto;
+  padding: 20px;
+  border: 2px solid rgb(78, 52, 46);
+  border-radius: 10px;
+  width: 60%;
+  max-width: 600px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.sepet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(78, 52, 46);
+  margin-bottom: 15px;
+}
+
+.sepet-header h2 {
+  color: rgb(78, 52, 46);
+  margin: 0;
+}
+
+.close-sepet {
+  color: rgb(78, 52, 46);
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-sepet:hover {
+  color: #a0522d;
+}
+
+.sepet-body {
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+.empty-cart {
+  text-align: center;
+  padding: 20px;
+}
+
+.empty-cart p {
+  color: rgb(78, 52, 46);
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.menu-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #a0522d;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.menu-link:hover {
+  background-color: rgb(78, 52, 46);
+}
+
+.sepet-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.sepet-item:last-child {
+  border-bottom: none;
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-name {
+  font-weight: bold;
+  color: rgb(78, 52, 46);
+}
+
+.item-price {
+  color: #a0522d;
+  font-weight: bold;
+}
+
+.item-quantity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-btn {
+  background-color: rgb(78, 52, 46);
+  color: white;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.sepet-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid rgb(78, 52, 46);
+}
+
+.total-price {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(78, 52, 46);
+}
+.siparis-iptal-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-right: 10px;
+  transition: background-color 0.3s;
+}
+
+.siparis-iptal-btn:hover {
+  background-color: #cc0000;
+}
+.siparis-ver-btn {
+  background-color: #a0522d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.siparis-ver-btn:hover {
+  background-color: rgb(78, 52, 46);
+}
+/* Sipariş Geçmişi Modal Stilleri */
+.siparislerim-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: fadeIn 0.5s;
+}
+
+.siparislerim-content {
+  background-color: #f5f5dc;
+  margin: 5% auto;
+  padding: 20px;
+  border: 2px solid rgb(78, 52, 46);
+  border-radius: 10px;
+  width: 70%;
+  max-width: 800px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.siparislerim-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(78, 52, 46);
+  margin-bottom: 15px;
+}
+
+.siparislerim-header h2 {
+  color: rgb(78, 52, 46);
+  margin: 0;
+}
+
+.close-siparislerim {
+  color: rgb(78, 52, 46);
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-siparislerim:hover {
+  color: #a0522d;
+}
+
+.siparis-item {
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: white;
+  position: relative;
+}
+
+.siparis-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px dashed #ddd;
+}
+
+.siparis-id {
+  font-weight: bold;
+  color: rgb(78, 52, 46);
+}
+
+.siparis-tarih {
+  color: #666;
+  font-size: 0.9em;
+}
+
+.siparis-durum {
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+
+.durum-tamamlandi {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.durum-iptal {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.siparis-toplam {
+  text-align: right;
+  font-weight: bold;
+  margin-top: 10px;
+  color: rgb(78, 52, 46);
+}
+
+.siparis-urunler {
+  margin-top: 10px;
+}
+
+.urun-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.urun-adet {
+  color: #666;
+}
+
+.urun-fiyat {
+  font-weight: bold;
+  color: #a0522d;
+}
+
+.siparis-actions {
+  margin-top: 10px;
+  text-align: right;
+}
+
+.tekrar-siparis-btn {
+  background-color: #a0522d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.tekrar-siparis-btn:hover {
+  background-color: rgb(78, 52, 46);
+}
+
+.empty-orders {
+  text-align: center;
+  padding: 30px;
+  color: rgb(78, 52, 46);
+}
+/* MENÜ SAYFASI STİLLERİ */
+.menu-container {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.menu-header h1 {
+  color: rgb(78, 52, 46);
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.menu-categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.category-btn {
+  padding: 10px 20px;
+  background-color: rgb(245, 245, 220);
+  color: rgb(78, 52, 46);
+  border: 2px solid rgb(78, 52, 46);
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-weight: bold;
+}
+
+.category-btn:hover, .category-btn.active {
+  background-color: rgb(78, 52, 46);
+  color: rgb(245, 245, 220);
+}
+
+.menu-items-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  padding: 20px;
+}
+
+@media (max-width: 1200px) {
+  .menu-items-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .menu-items-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .menu-items-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.menu-item {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s;
+  border: 1px solid rgb(78, 52, 46);
+}
+
+.menu-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.menu-item-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid rgb(78, 52, 46);
+}
+
+.menu-item-info {
+  padding: 15px;
+  background-color: rgb(245, 245, 220);
+}
+
+.menu-item-title {
+  font-size: 1.2rem;
+  color: rgb(78, 52, 46);
+  margin-bottom: 10px;
+}
+
+.menu-item-desc {
+  color: #666;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  min-height: 40px;
+}
+
+.menu-item-price {
+  font-weight: bold;
+  color: #a0522d;
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  display: block;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+.quantity-controls button {
+  background-color: rgb(78, 52, 46);
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+
+.quantity-controls button:hover {
+  background-color: #a0522d;
+}
+
+.quantity-controls input {
+  width: 50px;
+  text-align: center;
+  margin: 0 5px;
+  border: 1px solid rgb(78, 52, 46);
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.add-to-cart {
+  background-color: #a0522d;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+  width: 100%;
+  font-weight: bold;
+}
+
+.add-to-cart:hover {
+  background-color: rgb(78, 52, 46);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+
+
+@keyframes slideIn {
+  from { right: -300px; opacity: 0; }
+  to { right: 20px; opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+/* ADMIN PANEL STİLLERİ */
+    .admin-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px;
+    }
+
+    .admin-container h1 {
+      color: rgb(78, 52, 46);
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .admin-sections {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 30px;
+    }
+
+    .admin-section {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .admin-section h2 {
+      color: rgb(78, 52, 46);
+      margin-top: 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .admin-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .admin-list li {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .admin-list li:last-child {
+      border-bottom: none;
+    }
+
+    .admin-list button {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .admin-list button.edit-btn {
+      background-color: #4CAF50;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: rgb(78, 52, 46);
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .form-group textarea {
+      min-height: 100px;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #a0522d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: rgb(78, 52, 46);
+    }
+
+    .product-list-container {
+      margin-top: 30px;
+    }
+
+    .product-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      align-items: center;
+    }
+
+    .product-item-info {
+      flex: 1;
+    }
+
+    .product-item-actions {
+      display: flex;
+      gap: 5px;
+    }
+
+    .preview-image {
+      max-width: 100px;
+      max-height: 100px;
+      margin-top: 10px;
+      display: none;
+    }
+
+    .delete-all-btn {
+      background-color: #ff3333 !important;
+      margin-top: 15px;
+    }
+
+    .delete-all-btn:hover {
+      background-color: #cc0000 !important;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .admin-sections {
+        grid-template-columns: 1fr;
+      }
+    }
+.quantity-control {
+  display: flex;
+  margin: 10px 0;
+}
+
+.quantity-control button {
+  width: 30px;
+  background: #a0522d;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.quantity-input {
+  width: 50px;
+  text-align: center;
+  margin: 0 5px;
+}

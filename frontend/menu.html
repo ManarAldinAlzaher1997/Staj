@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Menü - Lokantamız</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="image/favicon.png">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<style>
+  .main-menu{
+  height: 75px;
+  background-color:  rgb(183, 96, 24);
+  }
+  .main-menu a{
+  width: 240px;
+  }
+</style>
+<body>
+  <nav class="fade-in-element">
+    <div class="main-menu">
+      <div class="menu-items">
+      </div>
+      <a href="index.html">ANA SAYFA</a>
+      <a href="/sepet" id="sepetLink">
+        <i class="fas fa-shopping-cart"></i> Sepet
+      </a>
+      <a href="login.html" id="loginLink">
+        <i class="fas fa-sign-in-alt"></i> Giriş Yap
+      </a>
+    </div>
+  </nav>
+  <!-- Giriş Modalı -->
+  <div id="loginModal" class="login-modal">
+    <div class="login-content">
+      <div class="login-header">
+        <h2>GİRİŞ YAP</h2>
+        <span class="close-login">&times;</span>
+      </div>
+      <div class="login-body">
+        <!-- Google ile Giriş -->
+        <div class="google-login">
+          <button id="googleLoginBtn" class="google-login-btn">
+            <img src="https://www.google.com/s2/favicons?domain=google.com&sz=64" alt="Google Logo">
+            Google ile Giriş Yap
+          </button>
+        </div>
+        
+        <div class="divider">
+          <span>veya</span>
+        </div>
+        
+        <!-- Email-Şifre ile Giriş -->
+        <div class="email-login">
+          <form id="emailLoginForm">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Şifre</label>
+              <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-btn">Giriş Yap</button>
+          </form>
+        </div>
+        
+        <div class="login-footer">
+          <p>Hesabınız yok mu? <a href="#" id="showRegister">Üye Ol</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kayıt Modalı -->
+  <div id="registerModal" class="login-modal">
+    <div class="login-content">
+      <div class="login-header">
+        <h2>ÜYE OL</h2>
+        <span class="close-register">&times;</span>
+      </div>
+      <div class="login-body">
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="regName">Ad Soyad</label>
+            <input type="text" id="regName" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="regEmail">Email</label>
+            <input type="email" id="regEmail" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="regPassword">Şifre</label>
+            <input type="password" id="regPassword" name="password" required>
+          </div>
+          <div class="form-group">
+            <label for="regPasswordConfirm">Şifre Tekrar</label>
+            <input type="password" id="regPasswordConfirm" name="passwordConfirm" required>
+          </div>
+          <button type="submit" class="login-btn">Kayıt Ol</button>
+        </form>
+        
+        <div class="login-footer">
+          <p>Zaten hesabınız var mı? <a href="#" id="showLogin">Giriş Yap</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sepet Modalı -->
+  <div id="sepetModal" class="sepet-modal">
+    <div class="sepet-content">
+      <div class="sepet-header">
+        <h2>SİPARİŞİNİZ</h2>
+        <span class="close-sepet">&times;</span>
+      </div>
+      <div class="sepet-body" id="sepetBody">
+        <!-- Sepet içeriği -->
+        <div class="empty-cart">
+          <p>Sepetiniz boş</p>
+          <a href="menu.html" class="menu-link">MENÜ</a>
+        </div>
+      </div>
+      <div class="sepet-footer">
+        <div class="total-price">
+          Toplam: <span id="totalPrice">0</span> TL
+        </div>
+        <button class="siparis-iptal-btn">Siparişi İptal Et</button>
+        <button class="siparis-ver-btn">Sipariş Ver</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="menu-container fade-in-element">
+    <div class="menu-header">
+      <h1>LEZZETLİ MENÜMÜZ</h1>
+      <div class="menu-categories" id="categories">
+        <!-- Kategoriler -->
+      </div>
+    </div>
+
+    <div class="menu-items-container" id="menuItems">
+      <!-- Ürünler -->
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

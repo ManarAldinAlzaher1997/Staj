@@ -1,0 +1,19 @@
+{
+  "name": "lokanta-siparis-sistemi",
+  "version": "1.0.0",
+  "description": "Lokanta sipariş sistemi - Tam stack uygulama",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "install-deps": "cd backend && npm install",
+    "build": "echo 'Build complete'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["restaurant", "order", "nodejs", "express", "mongodb"],
+  "author": "Your Name",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

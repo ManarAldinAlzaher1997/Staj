@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lokanta Sipariş Menü</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="image/favicon.png" />
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+  <nav class="fade-in-element">
+    <div class="main-menu">
+      <div class="header-logo">
+        <img src="image/logo.png" alt="Logo" />
+      </div>
+      <div class="menu-items">
+        <a href="">ANA SAYFA</a>
+        <a href="menu.html">MENÜ</a>
+        <a href="#bizkimiz">HAKKIMIZDA</a>
+        <a href="#iletisim">İLETİŞİM</a>
+      </div>
+      <a href="login.html" id="loginLink">
+        <i class="fas fa-sign-in-alt"></i> Giriş Yap
+      </a>
+    </div>
+  </nav>
+  
+  <!-- Giriş Modalı -->
+  <div id="loginModal" class="login-modal">
+    <div class="login-content">
+      <div class="login-header">
+        <h2>GİRİŞ YAP</h2>
+        <span class="close-login">&times;</span>
+      </div>
+      <div class="login-body">
+        <!-- Google ile Giriş -->
+        <div class="google-login">
+          <button id="googleLoginBtn" class="google-login-btn">
+            <img src="https://www.google.com/s2/favicons?domain=google.com&sz=64" alt="Google Logo">
+            Google ile Giriş Yap
+          </button>
+        </div>
+        
+        <div class="divider">
+          <span>veya</span>
+        </div>
+        
+        <!-- Email-Şifre ile Giriş -->
+        <div class="email-login">
+          <form id="emailLoginForm">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Şifre</label>
+              <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-btn">Giriş Yap</button>
+          </form>
+        </div>
+        
+        <div class="login-footer">
+          <p>Hesabınız yok mu? <a href="#" id="showRegister">Üye Ol</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kayıt Modalı -->
+  <div id="registerModal" class="login-modal">
+    <div class="login-content">
+      <div class="login-header">
+        <h2>ÜYE OL</h2>
+        <span class="close-register">&times;</span>
+      </div>
+      <div class="login-body">
+        <form id="registerForm">
+          <div class="form-group">
+            <label for="regName">Ad Soyad</label>
+            <input type="text" id="regName" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="regEmail">Email</label>
+            <input type="email" id="regEmail" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="regPassword">Şifre</label>
+            <input type="password" id="regPassword" name="password" required>
+          </div>
+          <div class="form-group">
+            <label for="regPasswordConfirm">Şifre Tekrar</label>
+            <input type="password" id="regPasswordConfirm" name="passwordConfirm" required>
+          </div>
+          <button type="submit" class="login-btn">Kayıt Ol</button>
+        </form>
+        
+        <div class="login-footer">
+          <p>Zaten hesabınız var mı? <a href="#" id="showLogin">Giriş Yap</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="slider-section fade-in-element">
+    <div class="slider-container">
+      <div class="slider">
+        <div class="slide active">
+          <img src="image/6.jpg" alt="Fotoğraf 1">
+        </div>
+        <div class="slide">
+          <img src="image/2.png" alt="Fotoğraf 2">
+        </div>
+        <div class="slide">
+          <img src="image/3.png" alt="Fotoğraf 3">
+        </div>
+        <div class="slide">
+          <img src="image/2.png" alt="Fotoğraf 4">
+        </div>
+        <div class="slide">
+          <img src="image/logo.png" alt="Fotoğraf 5">
+        </div>
+      </div>
+      
+      <button class="prev-btn">❮</button>
+      <button class="next-btn">❯</button>
+      
+      <div class="dots-container">
+        <span class="dot active" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+        <span class="dot" data-slide="3"></span>
+        <span class="dot" data-slide="4"></span>
+      </div>
+    </div>
+  </section>
+  
+  <section class="media-row fade-in-element">
+    <div class="image-container">
+      <img src="image/2.png" alt="Sol Fotoğraf">
+    </div>
+    <div class="video-container">
+      <video autoplay loop muted playsinline>
+        <source src="video/crepe.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="image-container">
+      <img src="image/1.png" alt="Sağ Fotoğraf">
+    </div>
+  </section>
+  
+  <section class="products-section fade-in-element">
+    <div class="product-card">
+      <img src="image/krep.jpg" alt="Crepe">
+      <div class="card-description">
+        <h3>Crepe</h3>
+        <p>Bu güzel lezzetleri yakalayın, ve çeşitli çeşitli tadlara bakın</p>
+        <a href="menu.html">Detaylar</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="image/woffle.jpg" alt="Waffle">
+      <div class="card-description">
+        <h3>Waffle</h3>
+        <p>Bu güzel lezzetleri yakalayın, ve çeşitli çeşitli tadlara bakın</p>
+        <a href="menu.html">Detaylar</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="image/Pan kek.jpg" alt="Pancake">
+      <div class="card-description">
+        <h3>Pan Cake</h3>
+        <p>Bu güzel lezzetleri yakalayın, ve çeşitli çeşitli tadlara bakın</p>
+        <a href="menu.html">Detaylar</a>
+      </div> 
+    </div>
+    <div class="product-card">
+      <img src="image/Profiterol.jpeg" alt="Profiterol">
+      <div class="card-description">
+        <h3>Profiterol</h3>
+        <p>Bu güzel lezzetleri yakalayın, ve çeşitli çeşitli tadlara bakın</p>
+        <a href="menu.html">Detaylar</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="image/Dubai çikolatası.webp" alt="Dubai Çikolatası">
+      <div class="card-description">
+        <h3>Dubai Chocolate</h3>
+        <p>Bu güzel lezzetleri yakalayın, ve çeşitli çeşitli tadlara bakın</p>
+        <a href="menu.html">Detaylar</a>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="image/Kahve.webp" alt="Kahve">
+      <div class="card-description">
+        <h3>Coffee</h3>
+        <p>Bu güzel lezzetleri yakalayın, ve çeşitli çeşitli tadlara bakın</p>
+        <a href="menu.html">Detaylar</a>
+      </div>
+    </div>
+  </section>
+  
+  <footer class="fade-in-element" >
+    <div class="footer-section bolum1" id="iletisim">
+      <div class="social-icons" >
+        <a href="https://wa.me/905522996536" target="_blank" class="social-icon">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.instagram.com/manaraldinalzaher?igsh=MTl5bXY4cXhhaGswMQ==" target="_blank" class="social-icon">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" target="_blank" class="social-icon">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" target="_blank" class="social-icon">
+          <i class="fab fa-x"></i>
+        </a>
+      </div>
+    </div>
+    <div class="footer-section bolum2">Adres:MOLLAGÜRANİ MAH. ŞAKRAK SOK. NO:11/1 FATİH/İSTANBUL</div>
+    <div class="footer-section bolum3">Çikolata Diyarı'nda lezzetin en tatlı hali! <br> Dubai'nin lüks çikolatalarıyla hazırlanan nefis waffle ve kreplerimizle, <br> çikolata tutkunlarına unutulmaz bir deneyim sunuyoruz.</div>
+    <div class="footer-section bolum4" id="bizkimiz">Çikolata Diyarı <br> Waffle ve kreplerin çikolata ile buluştuğu lezzet durağı. <br>Dubai'nin en özel çikolatalarıyla sizlere unutulmaz tatlı deneyimleri sunuyoruz.</div>
+  </footer>
+ 
+  <script src="script.js"></script>
+</body>
+</html>

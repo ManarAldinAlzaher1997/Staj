@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lokanta Sipariş Menü</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="icon" type="image/png" href="image/favicon.png" />
+   <script src="https://accounts.google.com/gsi/client" async defer></script>
+  </head>
+  <style>
+  .main-menu{
+  height: 50px;
+  }
+</style>
+<body>
+  <nav class="fade-in-element">
+  <div class="main-menu">
+    <div class="menu-items">
+      <a href="" id="siparislerimLink">SİPARİŞLERİM</a>
+    <a href="/sepet">
+      <i class="fas fa-shopping-cart"></i> Sepet
+    </a>
+    <a href="index.html" id="logoutBtn">
+      <i class="fas fa-sign-out-alt"></i> Çıkış 
+    </a>
+  </div>
+</nav>
+<!-- Sepet Modalı -->
+<div id="sepetModal" class="sepet-modal">
+  <div class="sepet-content">
+    <div class="sepet-header">
+      <h2>SİPARİŞİNİZ</h2>
+      <span class="close-sepet">&times;</span>
+    </div>
+    <div class="sepet-body" id="sepetBody">
+      <!-- Sepet içeriği -->
+      <div class="empty-cart">
+        <p>Sepetiniz boş</p>
+      </div>
+    </div>
+    <div class="sepet-footer">
+      <div class="total-price">
+        Toplam: <span id="totalPrice">0</span> TL
+      </div>
+      <button class="siparis-iptal-btn">Siparişi İptal Et</button>
+      <button class="siparis-ver-btn">Sipariş Ver</button>
+    </div>
+  </div>
+</div>
+<!-- Sipariş Geçmişi Modalı -->
+  <div id="siparislerimModal" class="siparislerim-modal">
+    <div class="siparislerim-content">
+      <div class="siparislerim-header">
+        <h2>GEÇMİŞ SİPARİŞLERİM</h2>
+        <span class="close-siparislerim">&times;</span>
+      </div>
+      <div class="siparislerim-body" id="siparislerimBody">
+        <!-- Sipariş geçmişi -->
+        <div class="empty-orders">
+          <p>Henüz sipariş geçmişiniz bulunmamaktadır.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="menu-container fade-in-element">
+    <div class="menu-header">
+      <h1>LEZZETLİ MENÜMÜZ</h1>
+      <div class="menu-categories" id="categories">
+        <!-- Kategoriler  -->
+      </div>
+    </div>
+    <div class="menu-items-container" id="menuItems">
+      <!-- Ürünler -->
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
