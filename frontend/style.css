@@ -59,7 +59,6 @@ body {
   height: 160px;
   border-radius: 25px 25px 0px 0px;
 }
-
 /* Login Modalı */
 .login-modal {
   display: none;
@@ -216,6 +215,18 @@ body {
 .login-footer a:hover {
   color: rgb(78, 52, 46);
   text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .login-content {
+    padding: 15px;
+  }
+  
+  .social-login-btn, .login-btn {
+    padding: 10px;
+    font-size: 14px;
+  }
 }
 
 /* Slider */
@@ -525,6 +536,91 @@ footer {
   transform: translateY(0);
 }
 
+/* Responsive Tasarım */
+@media (max-width: 1200px) {
+  .product-card {
+    width: 350px;
+    height: 350px;
+  }
+}
+
+@media (max-width: 992px) {
+  .main-menu {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 20px;
+  }
+  
+  .slider-section {
+    height: 400px;
+  }
+  
+  .product-card {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .media-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .video-container, .image-container {
+    flex: 0 0 100%;
+    width: 100%;
+  }
+  
+  .video-container {
+    aspect-ratio: 16/9;
+  }
+  
+  .image-container {
+    aspect-ratio: 16/9; 
+  }
+  
+  .main-menu .menu-items {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .search-container {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  
+  footer {
+    flex-direction: column;
+    height: auto;
+  }
+  
+  .footer-section:not(:last-child) {
+    border-right: none;
+    border-bottom: 2px solid rgb(78, 52, 46);
+  }
+}
+
+@media (max-width: 576px) {
+  .product-card {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+  
+  .product-card img {
+    height: 70%;
+  }
+  
+  .card-description {
+    height: 30%;
+  }
+  
+  .main-menu a {
+    width: 100px;
+    font-size: 14px;
+  }
+}
 /* Sepet Modal Stilleri */
 .sepet-modal {
   display: none;
@@ -903,6 +999,24 @@ footer {
   padding: 20px;
 }
 
+@media (max-width: 1200px) {
+  .menu-items-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .menu-items-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .menu-items-container {
+    grid-template-columns: 1fr;
+  }
+}
+
 .menu-item {
   background: white;
   border-radius: 10px;
@@ -1001,6 +1115,8 @@ footer {
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
+
+
 @keyframes slideIn {
   from { right: -300px; opacity: 0; }
   to { right: 20px; opacity: 1; }
@@ -1010,149 +1126,154 @@ footer {
   from { opacity: 1; }
   to { opacity: 0; }
 }
-
 /* ADMIN PANEL STİLLERİ */
-.admin-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 30px;
-}
+    .admin-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px;
+    }
 
-.admin-container h1 {
-  color: rgb(78, 52, 46);
-  text-align: center;
-  margin-bottom: 40px;
-}
+    .admin-container h1 {
+      color: rgb(78, 52, 46);
+      text-align: center;
+      margin-bottom: 40px;
+    }
 
-.admin-sections {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 30px;
-}
+    .admin-sections {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 30px;
+    }
 
-.admin-section {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
+    .admin-section {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
 
-.admin-section h2 {
-  color: rgb(78, 52, 46);
-  margin-top: 0;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #ddd;
-}
+    .admin-section h2 {
+      color: rgb(78, 52, 46);
+      margin-top: 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ddd;
+    }
 
-.admin-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
+    .admin-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
 
-.admin-list li {
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    .admin-list li {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-.admin-list li:last-child {
-  border-bottom: none;
-}
+    .admin-list li:last-child {
+      border-bottom: none;
+    }
 
-.admin-list button {
-  background-color: #ff4d4d;
-  color: white;
-  border: none;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-left: 10px;
-}
+    .admin-list button {
+      background-color: #ff4d4d;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
 
-.admin-list button.edit-btn {
-  background-color: #4CAF50;
-}
+    .admin-list button.edit-btn {
+      background-color: #4CAF50;
+    }
 
-.form-group {
-  margin-bottom: 15px;
-}
+    .form-group {
+      margin-bottom: 15px;
+    }
 
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  color: rgb(78, 52, 46);
-  font-weight: bold;
-}
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: rgb(78, 52, 46);
+      font-weight: bold;
+    }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-}
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      font-size: 16px;
+    }
 
-.form-group textarea {
-  min-height: 100px;
-}
+    .form-group textarea {
+      min-height: 100px;
+    }
 
-button {
-  padding: 10px 20px;
-  background-color: #a0522d;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s;
-}
+    button {
+      padding: 10px 20px;
+      background-color: #a0522d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
 
-button:hover {
-  background-color: rgb(78, 52, 46);
-}
+    button:hover {
+      background-color: rgb(78, 52, 46);
+    }
 
-.product-list-container {
-  margin-top: 30px;
-}
+    .product-list-container {
+      margin-top: 30px;
+    }
 
-.product-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px;
-  border-bottom: 1px solid #eee;
-  align-items: center;
-}
+    .product-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+      align-items: center;
+    }
 
-.product-item-info {
-  flex: 1;
-}
+    .product-item-info {
+      flex: 1;
+    }
 
-.product-item-actions {
-  display: flex;
-  gap: 5px;
-}
+    .product-item-actions {
+      display: flex;
+      gap: 5px;
+    }
 
-.preview-image {
-  max-width: 100px;
-  max-height: 100px;
-  margin-top: 10px;
-  display: none;
-}
+    .preview-image {
+      max-width: 100px;
+      max-height: 100px;
+      margin-top: 10px;
+      display: none;
+    }
 
-.delete-all-btn {
-  background-color: #ff3333 !important;
-  margin-top: 15px;
-}
+    .delete-all-btn {
+      background-color: #ff3333 !important;
+      margin-top: 15px;
+    }
 
-.delete-all-btn:hover {
-  background-color: #cc0000 !important;
-}
+    .delete-all-btn:hover {
+      background-color: #cc0000 !important;
+    }
 
+    /* Responsive */
+    @media (max-width: 768px) {
+      .admin-sections {
+        grid-template-columns: 1fr;
+      }
+    }
 .quantity-control {
   display: flex;
   margin: 10px 0;
@@ -1170,448 +1291,4 @@ button:hover {
   width: 50px;
   text-align: center;
   margin: 0 5px;
-}
-
-/* MEDIA QUERIES - RESPONSIVE STİLLER */
-
-/* Büyük Tabletler ve Küçük Laptoplar (992px - 1200px) */
-@media (max-width: 1200px) {
-  .menu-items-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
-  .product-card {
-    width: 350px;
-    height: 350px;
-  }
-  
-  .sepet-content, .siparislerim-content {
-    width: 70%;
-  }
-}
-
-/* Tabletler (768px - 992px) */
-@media (max-width: 992px) {
-  .main-menu {
-    flex-wrap: wrap;
-    height: auto;
-    padding: 15px;
-    justify-content: space-between;
-  }
-  
-  .main-menu .menu-items {
-    order: 3;
-    width: 100%;
-    justify-content: center;
-    margin-top: 15px;
-  }
-  
-  .slider-section {
-    height: 400px;
-  }
-  
-  .product-card {
-    width: 300px;
-    height: 300px;
-  }
-  
-  .menu-items-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .admin-sections {
-    grid-template-columns: 1fr;
-  }
-  
-  .sepet-content, .siparislerim-content {
-    width: 80%;
-  }
-  
-  .login-content {
-    width: 350px;
-  }
-  
-  .media-row {
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .video-container, .image-container {
-    flex: 0 0 100%;
-    width: 100%;
-  }
-  
-  .video-container {
-    aspect-ratio: 16/9;
-  }
-  
-  .image-container {
-    aspect-ratio: 16/9;
-  }
-}
-
-/* Küçük Tabletler (576px - 768px) */
-@media (max-width: 768px) {
-  .main-menu {
-    flex-direction: column;
-    align-items: center;
-    height: auto;
-    padding: 15px 10px;
-  }
-  
-  .main-menu div.header-logo {
-    width: 200px;
-    height: 130px;
-    margin-bottom: 15px;
-  }
-  
-  .main-menu div.header-logo img {
-    width: 200px;
-    height: 130px;
-  }
-  
-  .menu-items {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-  
-  .main-menu a {
-    width: 100px;
-    font-size: 14px;
-    margin-bottom: 5px;
-  }
-  
-  .slider-section {
-    height: 300px;
-  }
-  
-  .prev-btn, .next-btn {
-    padding: 10px;
-    font-size: 16px;
-    opacity: 1;
-  }
-  
-  .menu-items-container {
-    grid-template-columns: 1fr;
-    gap: 15px;
-    padding: 10px;
-  }
-  
-  .menu-header h1 {
-    font-size: 2rem;
-  }
-  
-  .menu-categories {
-    gap: 10px;
-  }
-  
-  .category-btn {
-    padding: 8px 15px;
-    font-size: 14px;
-  }
-  
-  .sepet-content, .siparislerim-content {
-    width: 90%;
-    margin: 5% auto;
-    padding: 15px;
-  }
-  
-  .login-content {
-    width: 320px;
-    padding: 20px;
-  }
-  
-  footer {
-    flex-direction: column;
-    height: auto;
-  }
-  
-  .footer-section {
-    height: auto;
-    padding: 15px;
-  }
-  
-  .footer-section:not(:last-child) {
-    border-right: none;
-    border-bottom: 2px solid rgb(78, 52, 46);
-  }
-  
-  .social-icons {
-    flex-wrap: wrap;
-  }
-  
-  .products-section {
-    padding: 10px;
-    gap: 15px;
-  }
-  
-  .product-card {
-    width: 100%;
-    height: auto;
-    aspect-ratio: 1/1;
-  }
-  
-  .product-card img {
-    height: 70%;
-  }
-  
-  .card-description {
-    height: 30%;
-    padding: 10px;
-  }
-  
-  .card-description h3 {
-    font-size: 16px;
-  }
-  
-  .card-description p {
-    font-size: 12px;
-    margin-bottom: 10px;
-  }
-  
-  .card-description a {
-    width: 90px;
-    height: 25px;
-    line-height: 25px;
-    font-size: 12px;
-    bottom: 10px;
-    left: 10px;
-  }
-  
-  .admin-container {
-    padding: 20px 15px;
-  }
-  
-  .admin-section {
-    padding: 15px;
-  }
-}
-
-/* Telefonlar (576px ve altı) */
-@media (max-width: 576px) {
-  .main-menu {
-    padding: 10px 5px;
-  }
-  
-  .main-menu div.header-logo {
-    width: 150px;
-    height: 100px;
-  }
-  
-  .main-menu div.header-logo img {
-    width: 150px;
-    height: 100px;
-  }
-  
-  .main-menu a {
-    width: 90px;
-    height: 35px;
-    line-height: 35px;
-    font-size: 12px;
-    padding: 0 5px;
-  }
-  
-  .slider-section {
-    height: 250px;
-    margin-bottom: 20px;
-  }
-  
-  .prev-btn, .next-btn {
-    padding: 8px;
-    font-size: 14px;
-  }
-  
-  .dots-container {
-    bottom: 10px;
-  }
-  
-  .dot {
-    width: 30px;
-    height: 4px;
-  }
-  
-  .menu-container {
-    padding: 20px 10px;
-  }
-  
-  .menu-header h1 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-  }
-  
-  .menu-categories {
-    margin-bottom: 20px;
-  }
-  
-  .category-btn {
-    padding: 6px 12px;
-    font-size: 12px;
-  }
-  
-  .menu-items-container {
-    gap: 10px;
-    padding: 5px;
-  }
-  
-  .menu-item-img {
-    height: 150px;
-  }
-  
-  .menu-item-info {
-    padding: 10px;
-  }
-  
-  .menu-item-title {
-    font-size: 1rem;
-  }
-  
-  .menu-item-desc {
-    font-size: 0.8rem;
-    min-height: 35px;
-  }
-  
-  .menu-item-price {
-    font-size: 1rem;
-  }
-  
-  .quantity-controls input {
-    width: 40px;
-  }
-  
-  .add-to-cart {
-    padding: 8px;
-    font-size: 14px;
-  }
-  
-  .sepet-content, .siparislerim-content {
-    width: 95%;
-    padding: 10px;
-  }
-  
-  .sepet-header h2, .siparislerim-header h2 {
-    font-size: 1.2rem;
-  }
-  
-  .close-sepet, .close-siparislerim {
-    font-size: 24px;
-  }
-  
-  .sepet-item {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  
-  .item-quantity {
-    align-self: flex-end;
-  }
-  
-  .sepet-footer {
-    flex-direction: column;
-    gap: 10px;
-    align-items: stretch;
-  }
-  
-  .siparis-header {
-    flex-direction: column;
-    gap: 5px;
-  }
-  
-  .login-content {
-    width: 300px;
-    padding: 15px;
-  }
-  
-  .login-header h2 {
-    font-size: 1.3rem;
-  }
-  
-  .social-login-btn, .login-btn {
-    padding: 10px;
-    font-size: 14px;
-  }
-  
-  .form-group input {
-    padding: 8px;
-    font-size: 14px;
-  }
-  
-  .products-section {
-    gap: 10px;
-  }
-  
-  .admin-container h1 {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-  }
-  
-  .admin-section h2 {
-    font-size: 1.2rem;
-  }
-  
-  button {
-    padding: 8px 15px;
-    font-size: 14px;
-  }
-  
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    padding: 8px;
-    font-size: 14px;
-  }
-  
-  .media-row {
-    padding: 15px;
-    margin: 20px 0;
-  }
-  
-  .social-icons {
-    gap: 10px;
-  }
-  
-  .social-icon {
-    width: 35px;
-    height: 35px;
-    font-size: 14px;
-  }
-}
-
-/* Çok Küçük Telefonlar (360px ve altı) */
-@media (max-width: 360px) {
-  .main-menu a {
-    width: 80px;
-    font-size: 11px;
-  }
-  
-  .main-menu div.header-logo {
-    width: 120px;
-    height: 80px;
-  }
-  
-  .main-menu div.header-logo img {
-    width: 120px;
-    height: 80px;
-  }
-  
-  .slider-section {
-    height: 200px;
-  }
-  
-  .login-content {
-    width: 280px;
-  }
-  
-  .menu-header h1 {
-    font-size: 1.5rem;
-  }
-  
-  .category-btn {
-    padding: 5px 10px;
-    font-size: 11px;
-  }
-  
-  .sepet-content, .siparislerim-content {
-    width: 98%;
-  }
 }
