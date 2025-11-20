@@ -356,11 +356,15 @@ function initSepet() {
   const sepetLink = document.querySelector('a[href="/sepet"]');
   const sepetModal = document.getElementById('sepetModal');
   
-  let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+  // Global sepet değişkenini kaldıralım, sadece localStorage'dan okuyalım
+  // let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
 
   window.addToCart = function(productId, name, price) {
     const safePrice = Number(price) || 0;
     const quantity = parseInt(document.getElementById(`qty-${productId}`).value) || 1;
+    
+    // Sepeti her zaman localStorage'dan oku
+    let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
     
     const existingItem = sepet.find(item => item.productId === productId);
     if (existingItem) {
@@ -368,12 +372,13 @@ function initSepet() {
     } else {
       sepet.push({ productId, name, price: safePrice, quantity });
     }
-    updateSepet();
+    
+    localStorage.setItem('sepet', JSON.stringify(sepet));
+    updateSepetUI();
     alert(`${quantity} adet ${name} sepete eklendi!`);
   };
 
   function updateSepet() {
-    localStorage.setItem('sepet', JSON.stringify(sepet));
     updateSepetUI();
   }
 
@@ -400,6 +405,9 @@ function initSepet() {
     const siparisVerBtn = document.querySelector('.siparis-ver-btn');
     if (siparisVerBtn) {
       siparisVerBtn.addEventListener('click', async () => {
+        // Sepeti her zaman güncel localStorage'dan al
+        const sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+        
         if (sepet.length === 0) return alert('Sepetiniz boş!');
         
         let userInfo = '';
@@ -450,17 +458,22 @@ function initSepet() {
             const data = await response.json();
             
             if (data.success) {
-              sepet = [];
-              updateSepet();
+              localStorage.removeItem('sepet');
+              updateSepetUI();
               sepetModal.style.display = 'none';
               alert('Siparişiniz WhatsApp üzerinden iletilmiştir. Teşekkür ederiz!');
             }
           } catch (error) {
             console.error('Sipariş kaydetme hatası:', error);
+            // Hata olsa bile sepeti temizle ve WhatsApp'a yönlendir
+            localStorage.removeItem('sepet');
+            updateSepetUI();
+            sepetModal.style.display = 'none';
+            alert('Siparişiniz WhatsApp üzerinden iletilmiştir. Teşekkür ederiz!');
           }
         } else {
-          sepet = [];
-          updateSepet();
+          localStorage.removeItem('sepet');
+          updateSepetUI();
           sepetModal.style.display = 'none';
           alert('Siparişiniz WhatsApp üzerinden iletilmiştir. Teşekkür ederiz!');
         }
@@ -470,6 +483,8 @@ function initSepet() {
     const siparisIptalBtn = document.querySelector('.siparis-iptal-btn');
     if (siparisIptalBtn) {
       siparisIptalBtn.addEventListener('click', function() {
+        const sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+        
         if (sepet.length === 0) {
           alert('Sepetiniz zaten boş!');
           return;
@@ -478,8 +493,7 @@ function initSepet() {
         const onay = confirm('Sepeti temizlemek istediğinize emin misiniz?');
         if (!onay) return;
 
-        sepet = [];
-        localStorage.setItem('sepet', JSON.stringify(sepet));
+        localStorage.removeItem('sepet');
         updateSepetUI();
         
         alert('Sepet temizlendi!');
