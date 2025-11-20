@@ -374,7 +374,7 @@ function initSepet() {
 
   function updateSepet() {
     localStorage.setItem('sepet', JSON.stringify(sepet));
-    if (sepetModal) updateSepetUI();
+    updateSepetUI();
   }
 
   if (sepetLink) {
@@ -520,17 +520,19 @@ function updateSepetUI() {
           <div class="item-price">${itemPrice.toFixed(2)} TL</div>
         </div>
         <div class="item-quantity">
-          <button class="quantity-btn" data-index="${index}" data-action="decrease">-</button>
-          <span>${itemQuantity}</span>
-          <button class="quantity-btn" data-index="${index}" data-action="increase">+</button>
+          <button class="quantity-btn decrease-btn" data-index="${index}" data-action="decrease">-</button>
+          <span class="quantity-display">${itemQuantity}</span>
+          <button class="quantity-btn increase-btn" data-index="${index}" data-action="increase">+</button>
           <button class="remove-btn" data-index="${index}">Sil</button>
         </div>
+        <div class="item-total">${itemTotal.toFixed(2)} TL</div>
       </div>`;
   });
 
   sepetBody.innerHTML = html;
   totalPriceElement.textContent = total.toFixed(2);
 
+  // + ve - butonları için event listener'ları ekleyelim
   document.querySelectorAll('.quantity-btn').forEach(btn => {
     btn.addEventListener('click', function() {
       const index = parseInt(this.dataset.index);
@@ -539,10 +541,17 @@ function updateSepetUI() {
       
       if (action === 'increase') {
         sepet[index].quantity = (sepet[index].quantity || 1) + 1;
-      } else if ((sepet[index].quantity || 1) > 1) {
-        sepet[index].quantity = (sepet[index].quantity || 1) - 1;
-      } else {
-        sepet.splice(index, 1);
+      } else if (action === 'decrease') {
+        if ((sepet[index].quantity || 1) > 1) {
+          sepet[index].quantity = (sepet[index].quantity || 1) - 1;
+        } else {
+          // Eğer miktar 1 ise ve - butonuna basılırsa, ürünü sepetten kaldır
+          if (confirm('Bu ürünü sepetinizden çıkarmak istediğinizden emin misiniz?')) {
+            sepet.splice(index, 1);
+          } else {
+            return; // İptal edilirse işlemi durdur
+          }
+        }
       }
       
       localStorage.setItem('sepet', JSON.stringify(sepet));
@@ -552,10 +561,12 @@ function updateSepetUI() {
 
   document.querySelectorAll('.remove-btn').forEach(btn => {
     btn.addEventListener('click', function() {
-      let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
-      sepet.splice(parseInt(this.dataset.index), 1);
-      localStorage.setItem('sepet', JSON.stringify(sepet));
-      updateSepetUI();
+      if (confirm('Bu ürünü sepetinizden çıkarmak istediğinizden emin misiniz?')) {
+        let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+        sepet.splice(parseInt(this.dataset.index), 1);
+        localStorage.setItem('sepet', JSON.stringify(sepet));
+        updateSepetUI();
+      }
     });
   });
 }
