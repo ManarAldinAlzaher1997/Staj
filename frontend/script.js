@@ -374,7 +374,7 @@ function initSepet() {
 
   function updateSepet() {
     localStorage.setItem('sepet', JSON.stringify(sepet));
-    if (sepetModal) updateSepetUI();
+    updateSepetUI();
   }
 
   if (sepetLink) {
@@ -520,9 +520,9 @@ function updateSepetUI() {
           <div class="item-price">${itemPrice.toFixed(2)} TL</div>
         </div>
         <div class="item-quantity">
-          <button class="quantity-btn" data-index="${index}" data-action="decrease">-</button>
-          <span>${itemQuantity}</span>
-          <button class="quantity-btn" data-index="${index}" data-action="increase">+</button>
+          <button class="quantity-btn decrease-btn" data-index="${index}">-</button>
+          <span class="quantity-display">${itemQuantity}</span>
+          <button class="quantity-btn increase-btn" data-index="${index}">+</button>
           <button class="remove-btn" data-index="${index}">Sil</button>
         </div>
       </div>`;
@@ -531,33 +531,78 @@ function updateSepetUI() {
   sepetBody.innerHTML = html;
   totalPriceElement.textContent = total.toFixed(2);
 
-  document.querySelectorAll('.quantity-btn').forEach(btn => {
+  bindSepetEventListeners();
+}
+
+function bindSepetEventListeners() {
+  // Artırma butonları
+  document.querySelectorAll('.increase-btn').forEach(btn => {
     btn.addEventListener('click', function() {
       const index = parseInt(this.dataset.index);
-      const action = this.dataset.action;
-      let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
-      
-      if (action === 'increase') {
-        sepet[index].quantity = (sepet[index].quantity || 1) + 1;
-      } else if ((sepet[index].quantity || 1) > 1) {
-        sepet[index].quantity = (sepet[index].quantity || 1) - 1;
-      } else {
-        sepet.splice(index, 1);
-      }
-      
-      localStorage.setItem('sepet', JSON.stringify(sepet));
-      updateSepetUI();
+      updateSepetItemQuantity(index, 'increase');
     });
   });
 
-  document.querySelectorAll('.remove-btn').forEach(btn => {
+  // Azaltma butonları
+  document.querySelectorAll('.decrease-btn').forEach(btn => {
     btn.addEventListener('click', function() {
-      let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
-      sepet.splice(parseInt(this.dataset.index), 1);
-      localStorage.setItem('sepet', JSON.stringify(sepet));
-      updateSepetUI();
+      const index = parseInt(this.dataset.index);
+      updateSepetItemQuantity(index, 'decrease');
     });
   });
+
+  // Silme butonları
+  document.querySelectorAll('.remove-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const index = parseInt(this.dataset.index);
+      removeSepetItem(index);
+    });
+  });
+}
+
+function updateSepetItemQuantity(index, action) {
+  let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+  
+  if (index >= 0 && index < sepet.length) {
+    if (action === 'increase') {
+      sepet[index].quantity = (sepet[index].quantity || 1) + 1;
+    } else if (action === 'decrease') {
+      if (sepet[index].quantity > 1) {
+        sepet[index].quantity = sepet[index].quantity - 1;
+      } else {
+        // Miktar 1 ise ürünü tamamen kaldır
+        sepet.splice(index, 1);
+      }
+    }
+    
+    localStorage.setItem('sepet', JSON.stringify(sepet));
+    updateSepetUI();
+    
+    // Sepet modal'ı açıksa güncelle
+    const sepetModal = document.getElementById('sepetModal');
+    if (sepetModal && sepetModal.style.display === 'block') {
+      updateSepetUI();
+    }
+  }
+}
+
+function removeSepetItem(index) {
+  let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+  
+  if (index >= 0 && index < sepet.length) {
+    const itemName = sepet[index].name;
+    sepet.splice(index, 1);
+    localStorage.setItem('sepet', JSON.stringify(sepet));
+    updateSepetUI();
+    
+    // Sepet modal'ı açıksa güncelle
+    const sepetModal = document.getElementById('sepetModal');
+    if (sepetModal && sepetModal.style.display === 'block') {
+      updateSepetUI();
+    }
+    
+    alert(`${itemName} sepetten kaldırıldı!`);
+  }
 }
 
 /* MENÜ SAYFASI FONKSİYONLARI */
