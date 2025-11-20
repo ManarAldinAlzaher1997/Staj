@@ -374,7 +374,7 @@ function initSepet() {
 
   function updateSepet() {
     localStorage.setItem('sepet', JSON.stringify(sepet));
-    updateSepetUI();
+    if (sepetModal) updateSepetUI();
   }
 
   if (sepetLink) {
@@ -392,40 +392,10 @@ function initSepet() {
     if (closeSepet) {
       closeSepet.addEventListener('click', () => sepetModal.style.display = 'none');
     }
-
+    
     window.addEventListener('click', (e) => {
       if (e.target === sepetModal) sepetModal.style.display = 'none';
     });
-
-    // Event delegation for quantity and remove buttons
-    const sepetBody = document.getElementById('sepetBody');
-    if (sepetBody) {
-      sepetBody.addEventListener('click', function(e) {
-        const target = e.target;
-
-        if (target.classList.contains('quantity-btn')) {
-          const index = parseInt(target.dataset.index);
-          const action = target.dataset.action;
-          let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
-
-          if (action === 'increase') {
-            sepet[index].quantity = (sepet[index].quantity || 1) + 1;
-          } else if ((sepet[index].quantity || 1) > 1) {
-            sepet[index].quantity = (sepet[index].quantity || 1) - 1;
-          } else {
-            sepet.splice(index, 1);
-          }
-
-          localStorage.setItem('sepet', JSON.stringify(sepet));
-          updateSepetUI();
-        } else if (target.classList.contains('remove-btn')) {
-          let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
-          sepet.splice(parseInt(target.dataset.index), 1);
-          localStorage.setItem('sepet', JSON.stringify(sepet));
-          updateSepetUI();
-        }
-      });
-    }
 
     const siparisVerBtn = document.querySelector('.siparis-ver-btn');
     if (siparisVerBtn) {
@@ -550,9 +520,9 @@ function updateSepetUI() {
           <div class="item-price">${itemPrice.toFixed(2)} TL</div>
         </div>
         <div class="item-quantity">
-          <button class="quantity-btn decrease-btn" data-index="${index}">-</button>
-          <span class="quantity-display">${itemQuantity}</span>
-          <button class="quantity-btn increase-btn" data-index="${index}">+</button>
+          <button class="quantity-btn" data-index="${index}" data-action="decrease">-</button>
+          <span>${itemQuantity}</span>
+          <button class="quantity-btn" data-index="${index}" data-action="increase">+</button>
           <button class="remove-btn" data-index="${index}">Sil</button>
         </div>
       </div>`;
