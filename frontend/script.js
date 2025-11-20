@@ -392,10 +392,40 @@ function initSepet() {
     if (closeSepet) {
       closeSepet.addEventListener('click', () => sepetModal.style.display = 'none');
     }
-    
+
     window.addEventListener('click', (e) => {
       if (e.target === sepetModal) sepetModal.style.display = 'none';
     });
+
+    // Event delegation for quantity and remove buttons
+    const sepetBody = document.getElementById('sepetBody');
+    if (sepetBody) {
+      sepetBody.addEventListener('click', function(e) {
+        const target = e.target;
+
+        if (target.classList.contains('quantity-btn')) {
+          const index = parseInt(target.dataset.index);
+          const action = target.dataset.action;
+          let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+
+          if (action === 'increase') {
+            sepet[index].quantity = (sepet[index].quantity || 1) + 1;
+          } else if ((sepet[index].quantity || 1) > 1) {
+            sepet[index].quantity = (sepet[index].quantity || 1) - 1;
+          } else {
+            sepet.splice(index, 1);
+          }
+
+          localStorage.setItem('sepet', JSON.stringify(sepet));
+          updateSepetUI();
+        } else if (target.classList.contains('remove-btn')) {
+          let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
+          sepet.splice(parseInt(target.dataset.index), 1);
+          localStorage.setItem('sepet', JSON.stringify(sepet));
+          updateSepetUI();
+        }
+      });
+    }
 
     const siparisVerBtn = document.querySelector('.siparis-ver-btn');
     if (siparisVerBtn) {
@@ -530,34 +560,6 @@ function updateSepetUI() {
 
   sepetBody.innerHTML = html;
   totalPriceElement.textContent = total.toFixed(2);
-
-  document.querySelectorAll('.quantity-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const index = parseInt(this.dataset.index);
-      const action = this.dataset.action;
-      let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
-      
-      if (action === 'increase') {
-        sepet[index].quantity = (sepet[index].quantity || 1) + 1;
-      } else if ((sepet[index].quantity || 1) > 1) {
-        sepet[index].quantity = (sepet[index].quantity || 1) - 1;
-      } else {
-        sepet.splice(index, 1);
-      }
-      
-      localStorage.setItem('sepet', JSON.stringify(sepet));
-      updateSepetUI();
-    });
-  });
-
-  document.querySelectorAll('.remove-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      let sepet = JSON.parse(localStorage.getItem('sepet')) || [];
-      sepet.splice(parseInt(this.dataset.index), 1);
-      localStorage.setItem('sepet', JSON.stringify(sepet));
-      updateSepetUI();
-    });
-  });
 }
 
 /* MENÜ SAYFASI FONKSİYONLARI */
