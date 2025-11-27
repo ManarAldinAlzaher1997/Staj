@@ -1,5 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+
+  // Ürün resim kaynağını döndüren yardımcı fonksiyon
+  // - Yeni sistem: product.image = "data:image/jpeg;base64,...."
+  // - Eski sistem: product.image = "dosyaadi.jpg"  -> /uploads/dosyaadi.jpg
+  function getProductImageSrc(product) {
+    if (!product || !product.image) return 'image/placeholder.jpg';
+    if (typeof product.image === 'string' && product.image.startsWith('data:')) {
+      // Yeni sistem: resim MongoDB'de data URL olarak
+      return product.image;
+    }
+    // Eski sistem: resim /uploads klasöründe dosya adı olarak
+    return '/uploads/' + product.image;
+  }
+
+
   if (document.querySelector('.slider')) {
     initSlider();
   }
@@ -1028,7 +1043,7 @@ window.editProduct = async function(productId) {
     const currentImageInfo = document.getElementById('currentImageInfo');
     
     if (product.image) {
-      editImagePreview.src = '/uploads/' + product.image;
+      editImagePreview.src = getProductImageSrc(product);
       editImagePreview.style.display = 'block';
       if (currentImageInfo) {
         currentImageInfo.innerHTML = `Mevcut resim: ${product.image}`;
@@ -1329,7 +1344,7 @@ function displayProducts(products) {
   if (menuItemsContainer) {
     menuItemsContainer.innerHTML = products.map(product => `
       <div class="menu-item" data-category="${product.category?._id || ''}">
-        <img src="${product.image ? '/uploads/' + product.image : 'image/placeholder.jpg'}" alt="${product.name}" class="menu-item-img">
+        <img src="${getProductImageSrc(product)}" alt="${product.name}" class="menu-item-img">
         <div class="menu-item-info">
                 <h3 class="menu-item-title">${product.name}</h3>
           <p class="menu-item-desc">${product.description}</p>

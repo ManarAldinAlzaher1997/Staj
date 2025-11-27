@@ -40,10 +40,18 @@ exports.getProduct = async (req, res) => {
   }
 };
 
+// YENİ: Ürün oluştururken resmi MongoDB'de base64 + data URL olarak saklıyoruz
 exports.createProduct = async (req, res) => {
   try {
     const { name, description, price, category } = req.body;
-    const image = req.file ? req.file.filename : '';
+
+    // Resmi base64 + data URL formatında sakla
+    let image = '';
+    if (req.file) {
+      const base64Image = req.file.buffer.toString('base64');
+      image = `data:${req.file.mimetype};base64,${base64Image}`;
+    }
+
     const categoryExists = await Category.findById(category);
     if (!categoryExists) {
       return res.status(400).json({
@@ -74,12 +82,15 @@ exports.createProduct = async (req, res) => {
   }
 };
 
+// YENİ: Ürünü güncellerken yeni resim geldiyse yine base64 + data URL olarak saklıyoruz
 exports.updateProduct = async (req, res) => {
   try {
     const updateData = { ...req.body };
     
+    // Eğer yeni resim yüklendiyse, base64 + data URL olarak sakla
     if (req.file) {
-      updateData.image = req.file.filename;
+      const base64Image = req.file.buffer.toString('base64');
+      updateData.image = `data:${req.file.mimetype};base64,${base64Image}`;
     }
     
     const product = await Product.findByIdAndUpdate(
